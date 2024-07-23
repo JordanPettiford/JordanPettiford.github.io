@@ -8,8 +8,10 @@ body, h1, h2, h3, p {
 /* Apply some basic styling */
 body {
   font-family: "Avenir";
+  text-align: center;
   font-size: medium;
   color: rgb(66, 54, 57);
+  background-color: #FFECD1;
 }
 
 header {
@@ -17,19 +19,20 @@ header {
   text-align: center;
   font-family:"Helvetica Neue";
   background-color: #BE6E46;
-  color: #494949;
+  color: #FFECD1;
   letter-spacing: 15px;
   padding: 10px;
 }
 h2 {
   font-family: "Didot";
-  color: #3A5A40;
+  color: #423629;
+  text-align: center;
 
 }
 
 nav ul {
   list-style-type: none;
-  color:#494949;
+  color:#423629;
   margin-right: 100px;
   float: right;
   padding: 0px -40px;
@@ -100,5 +103,5 @@ a:link {
 }
 
 a:visited { 
-  color: #494949;
+  color: #4BE6E46;
 }
