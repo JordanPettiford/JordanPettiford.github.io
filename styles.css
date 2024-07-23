@@ -9,14 +9,14 @@ body, h1, h2, h3, p {
 body {
   font-family: "Avenir";
   font-size: medium;
-  color: rgb(8, 37, 8);
+  color: rgb(66, 54, 57);
 }
 
 header {
   margin-top: 50px;
   text-align: center;
   font-family:"Helvetica Neue";
-  background-color: #aed7b3;
+  background-color: #BE6E46;
   color: #494949;
   letter-spacing: 15px;
   padding: 10px;
@@ -37,7 +37,7 @@ nav ul {
   font-size: 18px;
   font-family: "Avenir"; 
 }
-nav ul  :hover { color:#aed7b3; }
+nav ul  :hover { color:#FFC43D; }
 
 nav ul li {
   display: inline;
@@ -78,7 +78,7 @@ section {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #aed7b3;
+  background: #FFC43D;
   opacity: 75%;
   top: 0;
   left: 0;
@@ -96,7 +96,7 @@ section {
 }
 
 a:link {
-  color: #344E41;
+  color: #423629;
 }
 
 a:visited { 
