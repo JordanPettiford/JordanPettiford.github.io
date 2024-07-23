@@ -9,7 +9,7 @@ body, h1, h2, h3, p {
 body {
   font-family: "Avenir";
   text-align: center;
-  font-size: 1.75em;
+  font-size: medium;
   color: rgb(66, 54, 57);
   background-color: #FFECD1;
 }
@@ -20,16 +20,14 @@ header {
   font-family:"Helvetica Neue";
   background-color: #BE6E46;
   color: #FFECD1;
-  letter-spacing: 1.125em;
-  font-size: 3.5em;
-  padding: 2em;
+  letter-spacing: 15px;
+  padding: 30px;
 }
 h2 {
   font-family: "Didot";
   color: #423629;
   text-align: center;
-  font-size: 2.5em;
-  padding: 1.875em;
+  padding: 20px;
   background-color: #FFC43D;
 
 }
