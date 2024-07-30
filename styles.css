@@ -13,6 +13,12 @@ body {
   color: rgb(66, 54, 57);
   background-color: #FFECD1;
 }
+img { float: left;
+  margin-right: 10px;
+}
+
+p { overflow: hidden;
+}
 
 header {
   margin-top: 50px;
