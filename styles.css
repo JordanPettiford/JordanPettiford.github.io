@@ -16,7 +16,11 @@ body {
 img { float: left;
   margin-right: 10px;
 }
-
+.responsive {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
 p { overflow: hidden;
 }
 
