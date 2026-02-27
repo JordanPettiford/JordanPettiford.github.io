@@ -18,6 +18,119 @@
     <link rel="stylesheet" href="vendor.css">
     <link rel="stylesheet" href="styles.css">
 
+    <style>
+        /* =====================================================
+         * Social Video Section - Vertical Thumbnail Grid
+         * ===================================================== */
+
+        /* Vertical thumbnail container forces 9:16 aspect ratio */
+        .folio-item__thumb--vertical a {
+            display        : block;
+            position       : relative;
+            overflow       : hidden;
+            padding-bottom : 177.78%; /* 16/9 * 100 = 177.78% for 9:16 portrait */
+            height         : 0;
+        }
+
+        .folio-item__thumb--vertical a img {
+            position   : absolute;
+            top        : 0;
+            left       : 0;
+            width      : 100%;
+            height     : 100%;
+            object-fit : cover;
+            margin     : 0;
+            transition : all, 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+
+        /* Keep the hover overlay pseudo-elements working with the new layout */
+        .folio-item__thumb--vertical a::before {
+            z-index          : 1;
+            content          : "";
+            display          : block;
+            background-color : rgba(0, 0, 0, 0.5);
+            opacity          : 0;
+            visibility       : hidden;
+            position         : absolute;
+            top              : 0;
+            left             : 0;
+            right            : 0;
+            bottom           : 0;
+            width            : 100%;
+            height           : 100%;
+            transition       : all, .5s;
+        }
+
+        .folio-item__thumb--vertical a::after {
+            z-index     : 1;
+            content     : "+";
+            text-align  : center;
+            font-family : var(--font-1);
+            font-weight : 300;
+            font-size   : 3rem;
+            color       : white;
+            display     : block;
+            height      : 3.2rem;
+            width       : 3.2rem;
+            line-height : 3.2rem;
+            margin-left : -1.6rem;
+            margin-top  : -3rem;
+            text-align  : center;
+            opacity     : 0;
+            visibility  : hidden;
+            transform   : scale(0.5);
+            transition  : all, 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+            position    : absolute;
+            left        : 50%;
+            top         : 50%;
+        }
+
+        /* Hover states for vertical thumbnails */
+        .folio-item__thumb--vertical:hover a img {
+            transform : scale(1.05);
+        }
+
+        .folio-item__thumb--vertical:hover a::before {
+            opacity    : 1;
+            visibility : visible;
+        }
+
+        .folio-item__thumb--vertical:hover a::after {
+            opacity    : 1;
+            visibility : visible;
+            transform  : scale(1);
+        }
+
+        /* 4-column grid for social video on large screens */
+        .folio-list--social-video.block-lg-one-fourth > .column {
+            flex  : none;
+            width : 25%;
+        }
+
+        /* Reset the odd/even padding offsets for the 4-col grid */
+        .folio-list--social-video .column:nth-child(2n+1),
+        .folio-list--social-video .column:nth-child(2n+2) {
+            padding-right : var(--gutter);
+            padding-left  : var(--gutter);
+        }
+
+        /* Responsive: 2 columns on tablet */
+        @media screen and (max-width: 900px) {
+            .folio-list--social-video.block-lg-one-fourth > .column {
+                flex  : none;
+                width : 50%;
+            }
+        }
+
+        /* Responsive: 2 columns on mobile */
+        @media screen and (max-width: 550px) {
+            .folio-list--social-video.block-lg-one-fourth > .column {
+                flex  : none;
+                width : 50%;
+            }
+        }
+    </style>
+
     <!-- favicons
     ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -67,7 +180,6 @@
                     </ul>
                 </nav> <!-- end s-header__nav -->
 
- 
                 </ul>  <!-- end s-header__social -->
 
             </div> <!-- end s-header__nav-wrap -->
@@ -120,10 +232,173 @@
         ================================================== -->
         <section id="works" class="s-works">
 
+            <!-- =====================================================
+                 SOCIAL VIDEO SECTION (new — before Video Journalism)
+                 ===================================================== -->
             <div class="row">
               <div class="column lg-12">
                 <h2 class="text-pretitle">Selected Projects</h2>
+                <p class="text-huge-title">Social Video.</p>
+              </div>
+            </div>
 
+            <!--
+                NOTE: Replace the placeholder src/href values below with your
+                actual vertical-video thumbnail URLs and project links.
+                Vertical thumbnails (9:16) work best — e.g. from TikTok, 
+                Instagram Reels, or YouTube Shorts.
+                The grid uses 4 columns on desktop and 2 columns on mobile,
+                keeping each card portrait-shaped to match the video format.
+            -->
+            <div class="row folio-list folio-list--social-video block-lg-one-fourth block-stack-on-550" data-animate-block>
+
+                <div class="column" data-animate-el>
+                    <div class="folio-item">
+                        <div class="folio-item__thumb folio-item__thumb--vertical">
+                            <a class="folio-item__thumb-link" href="Thumnbails/BlackAltThumb.jpg" title="Black Alt Rennaisance" data-size="607x1080">
+                                <img src="Thumbnails/BlackAltThumb.jpg" alt="Instagram thumbnail of black and white guitar with text">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__meta">
+                                <span class="cat">Writer + Host</span>
+                                <a href="https://www.instagram.com/reels/DSTUBc_DoFT/" title="Project Link" class="project-link">Project Link</a>
+                            </div>
+                            <h4 class="folio-item__title"></h4>
+                        </div>
+                        <div class="folio-item__caption">
+                            <p> </p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-animate-el>
+                    <div class="folio-item">
+                        <div class="folio-item__thumb folio-item__thumb--vertical">
+                            <a class="folio-item__thumb-link" href="Thumbnails/ForagingThumb.jpg" title="Social Video 2" data-size="607x1080">
+                                <img src="Thumbnails/ForagingThumb.jpg" alt="Social Video 2">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__meta">
+                                <span class="cat">Writer + Videography + Drone</span>
+                                <a href="https://www.instagram.com/ajcnews/reel/DRx1rsoiTnt/" title="Project Link" class="project-link">Project Link</a>
+                            </div>
+                            <h4 class="folio-item__title"></h4>
+                        </div>
+                        <div class="folio-item__caption">
+                            <p> </p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-animate-el>
+                    <div class="folio-item">
+                        <div class="folio-item__thumb folio-item__thumb--vertical">
+                            <a class="folio-item__thumb-link" href="Thumbnails/MonksThumb.jpg" title="Social Video 3" data-size="607x1080">
+                                <img src="Thumbnails/MonksThumb.jpg" alt="Social Video 3">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__meta">
+                                <span class="cat">Host + Producer</span>
+                                <a href="https://www.instagram.com/ajcnews/reel/DS_FgaNCb2p/" title="Project Link" class="project-link">Project Link</a>
+                            </div>
+                            <h4 class="folio-item__title"></h4>
+                        </div>
+                        <div class="folio-item__caption">
+                            <p></p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-animate-el>
+                    <div class="folio-item">
+                        <div class="folio-item__thumb folio-item__thumb--vertical">
+                            <a class="folio-item__thumb-link" href="Thumbnails/ATCProtestThumb.jpg" title="Social Video 4" data-size="607x1080">
+                                <img src="Thumbnails/ATCProtestThumb.jpg" alt="Social Video 4">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__meta">
+                                <span class="cat">Producer + Videography</span>
+                                <a href="https://www.instagram.com/ajcnews/reel/DQaSvjkE8RW/" title="Project Link" class="project-link">Project Link</a>
+                            </div>
+                            <h4 class="folio-item__title"></h4>
+                        </div>
+                        <div class="folio-item__caption">
+                            <p> </p>
+                        </div>
+                    </div>
+
+                </div> <!-- end column -->
+                <div class="column" data-animate-el>
+                    <div class="folio-item">
+                        <div class="folio-item__thumb folio-item__thumb--vertical">
+                            <a class="folio-item__thumb-link" href="Thumbnails/KavaBarsThumb.jpg" title="Social Video 4" data-size="607x1080">
+                                <img src="Thumbnails/KavaBarsThumb.jpg" alt="Social Video 4">
+                            </a>
+                        </div>
+                        <div class="folio-item__info">
+                            <div class="folio-item__meta">
+                                <span class="cat">Producer + Videography</span>
+                                <a href="https://www.instagram.com/ajcnews/reel/DTOiVFakmse/" title="Project Link" class="project-link">Project Link</a>
+                            </div>
+                            <h4 class="folio-item__title"></h4>
+                        </div>
+                        <div class="folio-item__caption">
+                            <p> </p>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+            <div class="column" data-animate-el>
+                <div class="folio-item">
+                    <div class="folio-item__thumb folio-item__thumb--vertical">
+                        <a class="folio-item__thumb-link" href="Thumbnails/AirportGravesThumb.jpg" title="Social Video 4" data-size="607x1080">
+                            <img src="Thumbnails/AirportGravesThumb.jpg" alt="Social Video 4">
+                        </a>
+                    </div>
+                    <div class="folio-item__info">
+                        <div class="folio-item__meta">
+                            <span class="cat">Writer + Host</span>
+                            <a href="https://www.instagram.com/ajcnews/reel/DT1KWslEbQz/" title="Project Link" class="project-link">Project Link</a>
+                        </div>
+                        <h4 class="folio-item__title"></h4>
+                    </div>
+                    <div class="folio-item__caption">
+                        <p> </p>
+                    </div>
+                </div>
+            </div> <!-- end column -->
+        <div class="column" data-animate-el>
+            <div class="folio-item">
+                <div class="folio-item__thumb folio-item__thumb--vertical">
+                    <a class="folio-item__thumb-link" href="Thumbnails/ChessboxingThumb.jpg" title="Social Video 4" data-size="607x1080">
+                        <img src="Thumbnails/ChessboxingThumb.jpg" alt="Social Video 4">
+                    </a>
+                </div>
+                <div class="folio-item__info">
+                    <div class="folio-item__meta">
+                        <span class="cat">Producer + Videography</span>
+                        <a href="https://www.instagram.com/ajcnews/reel/DNl8LKCRGoc/" title="Project Link" class="project-link">Project Link</a>
+                    </div>
+                    <h4 class="folio-item__title"></h4>
+                </div>
+                <div class="folio-item__caption">
+                    <p> </p>
+                </div>
+            </div>
+        </div> <!-- end column -->
+
+     </div> <!-- end folio-list (social video) -->
+
+
+            <!-- =====================================================
+                 VIDEO JOURNALISM SECTION (original)
+                 ===================================================== -->
+            <div class="row">
+              <div class="column lg-12">
+                <h2 class="text-pretitle">Selected Projects</h2>
                   <p class="text-huge-title">
                   Video Journalism.</p>
                 </div>
@@ -315,7 +590,13 @@
                     </div>
                 </div> <!-- end column -->
 				
-				 <div class="row">
+            </div> <!-- end folio-list (video journalism) -->
+
+
+            <!-- =====================================================
+                 AUDIO SECTION (original)
+                 ===================================================== -->
+			 <div class="row">
               <div class="column lg-12">
                 <h2 class="text-pretitle">Selected Projects</h2>
 
@@ -342,7 +623,7 @@
                                 <span class="cat">Writer</span>
                                 <a href="https://www.untextbooked.org/listen/the-stunt-work-that-launched-women-into-investigative-journalism" title="Project Link" class="project-link">Project Link</a>
                           </div>
-                          <h4 class="folio-item__title">The ‘Stunt Work’ That Launched Women Into Investigative Journalism (feat. Brooke Kroeger)</h4>
+                          <h4 class="folio-item__title">The 'Stunt Work' That Launched Women Into Investigative Journalism (feat. Brooke Kroeger)</h4>
                         </div>
                         <div class="folio-item__caption">
                             <p> </p>
